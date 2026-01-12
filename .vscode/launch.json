@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for Xdebug QAP nuevo",
+            "type": "php",
+            "request": "launch",
+            "port": 9090,
+            "pathMappings": {
+                "/QUIK-QAP-QAP-ONLINE-new-arch": "${workspaceRoot}/",
+                "C:\\xampp\\htdocs\\QUIK-QAP-QAP-ONLINE-new-arch\\": "${workspaceRoot}/"
+            },
+            "log": true
+        },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9090,
+            "pathMappings": {
+                "/QUIK-QAP-QAP-ONLINE-new-arch": "${workspaceRoot}",
+                "C:\\xampp\\htdocs\\QUIK-QAP-QAP-ONLINE-new-arch": "${workspaceRoot}"
+            }
+        }
+    ]
+}

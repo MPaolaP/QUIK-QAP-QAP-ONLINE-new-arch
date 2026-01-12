@@ -5,42 +5,31 @@ ini_set('max_execution_time', 300);
 
 // Cargar compatibilidad MySQL para PHP 7+
 if (!function_exists('mysql_connect')) {
-    $compatibility_paths = [
-        __DIR__ . '/../mysql_compatibility.php',
-        '/usr/local/lib/php/mysql_compatibility.php',
-        dirname(__DIR__) . '/mysql_compatibility.php'
-    ];
-    
-    foreach ($compatibility_paths as $path) {
-        if (file_exists($path)) {
-            require_once $path;
-            break;
-        }
-    }
-    
-    // Si aún no existe, mostrar error
-    if (!function_exists('mysql_connect')) {
-        die('Error: No se pudo cargar la compatibilidad MySQL para PHP 7+');
-    }
+	$compatibility_paths = [
+		__DIR__ . '/../mysql_compatibility.php',
+		'/usr/local/lib/php/mysql_compatibility.php',
+		dirname(__DIR__) . '/mysql_compatibility.php'
+	];
+
+	foreach ($compatibility_paths as $path) {
+		if (file_exists($path)) {
+			require_once $path;
+			break;
+		}
+	}
+
+	// Si aún no existe, mostrar error
+	if (!function_exists('mysql_connect')) {
+		die('Error: No se pudo cargar la compatibilidad MySQL para PHP 7+');
+	}
 }
 
 
 // Configuración BD
-// [credentials - PROD]
-// $db_host = "127.0.0.1";
-// $db_user = "panequik_qap";
-// $db_pass = "QuikSAS2019*";
-// $db_name = "panequik_qaponline_v4";
-// [credentials - TEST]
-$db_host = "localhost"; 
-$db_user = "panequik_qap_test";
+$db_host = "127.0.0.1";
+$db_user = "panequik_qap";
 $db_pass = "QuikSAS2019*";
-$db_name = "panequik_qaponline_test";
-// [credentials - local]
-// $db_host = "localhost";
-// $db_user = "root";
-// $db_pass = ''; // o tu contraseña si la configuraste
-// $db_name = "u669796078_panequik_qap"; //
+$db_name = "v1qaponline";
 
 // Conexión usando compatibilidad MySQL mejorada
 // Compatible con PHP 7+ usando mysqli internamente
